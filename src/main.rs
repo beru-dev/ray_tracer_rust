@@ -1,8 +1,8 @@
-mod coord;
-mod approx_equal;
-mod point3;
-mod vector3;
+mod projects;
+use ray_tracer_rust::*;
+use projects::*;
 
 fn main() {
-    println!("Hello, world!");
+    use projectile::*;
+    log_projectile();
 }
