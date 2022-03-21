@@ -7,7 +7,7 @@ pub struct Point3(pub f64, pub f64, pub f64, pub f64);
 
 impl Point3 {
     pub fn new(x: f64, y: f64, z: f64) -> Point3 {
-        return Point3(x, y, z, 1.0);
+        Point3(x, y, z, 1.0)
     }
 }
 
@@ -15,11 +15,11 @@ impl Add<Vector3> for Point3 {
     type Output = Point3;
 
     fn add(self, other: Vector3) -> Point3 {
-        return Point3::new(
+        Point3::new(
             self.0 + other.0,
             self.1 + other.1,
             self.2 + other.2
-        );
+        )
     }
 }
 
@@ -27,7 +27,7 @@ impl Sub for Point3 {
     type Output = Vector3;
 
     fn sub(self, other: Point3) -> Vector3 {
-        return Vector3::new(
+        Vector3::new(
             self.0 - other.0,
             self.1 - other.1,
             self.2 - other.2
@@ -39,7 +39,7 @@ impl Sub<Vector3> for Point3 {
     type Output = Point3;
 
     fn sub(self, other: Vector3) -> Point3 {
-        return Point3::new(
+        Point3::new(
             self.0 - other.0,
             self.1 - other.1,
             self.2 - other.2

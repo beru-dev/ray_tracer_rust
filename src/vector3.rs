@@ -7,27 +7,27 @@ pub struct Vector3(pub f64, pub f64, pub f64, pub f64);
 
 impl Vector3 {
     pub fn new(x: f64, y: f64, z: f64) -> Vector3 {
-        return Vector3(x, y, z, 0.0);
+        Vector3(x, y, z, 0.0)
     }
 
     pub fn magnitude(&self) -> f64 {
-        return (self.0 * self.0 + self.1 * self.1 + self.2 * self.2).sqrt();
+        (self.0 * self.0 + self.1 * self.1 + self.2 * self.2).sqrt()
     }
 
     pub fn normalize(&self) -> Vector3 {
-        return Vector3::new(
+        Vector3::new(
             self.0 / self.magnitude(),
             self.1 / self.magnitude(),
             self.2 / self.magnitude()
-        );
+        )
     }
 
     pub fn cross(&self, other: &Vector3) ->  Vector3 {
-        return Vector3::new(
+        Vector3::new(
             self.1 * other.2 - self.2 * other.1,
             self.2 * other.0 - self.0 * other.2,
             self.0 * other.1 - self.1 * other.0
-        );
+        )
     }
 }
 
@@ -35,11 +35,11 @@ impl Add for Vector3 {
     type Output = Vector3;
 
     fn add(self, other: Vector3) -> Vector3 {
-        return Vector3::new(
+        Vector3::new(
             self.0 + other.0,
             self.1 + other.1,
             self.2 + other.2
-        );
+        )
     }
 }
 
@@ -47,7 +47,7 @@ impl Add<Point3> for Vector3 {
     type Output = Point3;
 
     fn add(self, other: Point3) -> Point3 {
-        return Point3::new(
+        Point3::new(
             self.0 + other.0,
             self.1 + other.1,
             self.2 + other.2
@@ -59,7 +59,7 @@ impl Sub for Vector3 {
     type Output = Vector3;
 
     fn sub(self, other: Vector3) -> Vector3 {
-        return Vector3::new(
+        Vector3::new(
             self.0 - other.0,
             self.1 - other.1,
             self.2 - other.2
@@ -80,7 +80,7 @@ impl Neg for Vector3 {
     type Output = Vector3;
 
     fn neg(self) -> Vector3 {
-        return Vector3::new(-self.0, -self.1, -self.2);
+        Vector3::new(-self.0, -self.1, -self.2)
     }
 }
 
@@ -88,7 +88,7 @@ impl Mul for Vector3 {
     type Output = f64;
 
     fn mul(self, other: Vector3) -> f64 {
-        return self.0 * other.0 +
+        self.0 * other.0 +
         self.1 * other.1 +
         self.2 * other.2
     }
@@ -98,11 +98,11 @@ impl Mul<f64> for Vector3 {
     type Output = Vector3;
 
     fn mul(self, other: f64) -> Vector3 {
-        return Vector3::new(
+        Vector3::new(
             self.0 * other,
             self.1 * other,
             self.2 * other
-        );
+        )
     }
 }
 
@@ -110,11 +110,11 @@ impl Div<f64> for Vector3 {
     type Output = Vector3;
 
     fn div(self, other: f64) -> Vector3 {
-        return Vector3::new(
+        Vector3::new(
             self.0 / other,
             self.1 / other,
             self.2 / other
-        );
+        )
     }
 }
 
